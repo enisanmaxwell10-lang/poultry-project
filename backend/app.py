@@ -1,4 +1,5 @@
 from typing import List, Optional
+import os
 from fastapi import FastAPI, status, Depends, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -10,7 +11,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[os.environ.get("FRONTEND_URL", "https://poultry-project-five.vercel.app")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

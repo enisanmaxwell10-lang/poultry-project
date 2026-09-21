@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
+
 function Contact() {
   const revealRefs = useRef([])
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
@@ -28,7 +30,7 @@ function Contact() {
     setLoading(true)
     setStatus({ type: '', message: '' })
     try {
-      const res = await fetch('http://127.0.0.1:8000/contact', {
+      const res = await fetch(`${API_URL}/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
