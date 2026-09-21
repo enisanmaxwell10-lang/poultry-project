@@ -23,10 +23,13 @@ def _get_or_create_collection(name, attempts=5):
     raise RuntimeError(f"Could not connect to collection '{name}': {last_error}")
 
 
-user_collection = _get_or_create_collection("users")
-product_collection = _get_or_create_collection("products")
-order_collection = _get_or_create_collection("orders")
-contact_collection = _get_or_create_collection("contacts")
-branch_collection = _get_or_create_collection("branches")
-
-print(f"Connected to Astra DB: {db.list_collection_names()}")
+try:
+    user_collection = _get_or_create_collection("users")
+    product_collection = _get_or_create_collection("products")
+    order_collection = _get_or_create_collection("orders")
+    contact_collection = _get_or_create_collection("contacts")
+    branch_collection = _get_or_create_collection("branches")
+    print(f"Connected to Astra DB: {db.list_collection_names()}")
+except Exception as e:
+    print(f"Warning: Could not connect to Astra DB at startup: {e}")
+    user_collection = product_collection = order_collection = contact_collection = branch_collection = None

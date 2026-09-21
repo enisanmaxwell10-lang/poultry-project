@@ -64,7 +64,7 @@ function Navbar() {
           <div className="flex items-center justify-between h-[60px] ">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 ">
-              <div className="w-[42px] h-[42px] px-10 bg-[#2D5A27] rounded-2xl flex items-center justify-center transition-all duration-400 group-hover:scale-105 shadow-sm">
+              <div className="w-[42px] h-[42px] px-2 bg-[#2D5A27] rounded-2xl flex items-center justify-center transition-all duration-400 group-hover:scale-105 shadow-sm">
                 <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.5 12C17.5 14.5 15.5 16.5 13 16.5H11C8.5 16.5 6.5 14.5 6.5 12V6C6.5 3.5 8.5 1.5 11 1.5H13C15.5 1.5 17.5 3.5 17.5 6V12Z"/>
                   <path d="M12 16.5V22.5"/>
@@ -95,7 +95,7 @@ function Navbar() {
             </div>
 
             {/* Right Side Actions */}
-            <div className=" flex items-center  flex-wrap gap-4">
+            <div className="hidden lg:flex items-center gap-4">
               <Link
                 to="/shop"
                 className="inline-flex items-center justify-center bg-[#1E3D1A] text-white text-[14px] font-semibold  rounded-xl w-25 h-9"
@@ -204,7 +204,7 @@ function Navbar() {
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
           />
-          <div className="mobile-menu-enter absolute top-[80px] left-0 right-0 bg-white shadow-2xl">
+          <div className="mobile-menu-enter absolute top-[60px] left-0 right-0 bg-white shadow-2xl">
             <div className="px-6 py-6 space-y-1">
               {navLinks.map((link) => (
                 <Link
